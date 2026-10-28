@@ -159,3 +159,134 @@ scene-trailers.js — UI injection and player control
 License
 
 MIT
+
+
+
+
+Create a folder for the plugin, e.g. scene-trailers inside your Stash plugins directory.
+
+
+
+Place these two files in that folder:
+
+
+
+
+
+scene-trailers.yml
+
+
+
+scene-trailers.js
+
+
+
+In Stash go to Settings → Plugins and click Reload Plugins.
+
+
+
+The plugin should appear in the list. Enable it if needed and reload the page.
+
+Usage
+
+
+
+
+
+On the scene that should have a trailer, add a custom field:
+
+
+
+
+
+Name: scene_trailer_id (or whatever name you set in the plugin settings)
+
+
+
+Value: the numeric Scene ID of the trailer scene (e.g. 8150)
+
+
+
+Open the scene page. A View Trailer button appears in the scene subheader (or as a fallback button).
+
+
+
+Click it to switch the player to the trailer scene. Click again to return to the main scene.
+
+The trailer scene itself does not need to be a member of any group or have special tags — only the Scene ID in the custom field is required.
+
+Plugin Settings
+
+
+
+
+
+
+
+Setting
+
+
+
+Description
+
+
+
+Default
+
+
+
+
+
+Trailer field name
+
+
+
+Name of the custom field that stores the trailer Scene ID
+
+
+
+scene_trailer_id
+
+Requirements
+
+
+
+
+
+Stash with custom field support for scenes
+
+
+
+Modern browser with the video.js player used by Stash
+
+How It Works
+
+The plugin reads the configured custom field via GraphQL. If it contains a valid numeric Scene ID, it injects a toggle button. Clicking the button calls the video.js player API to switch between:
+
+
+
+
+
+/scene/<current-id>/stream
+
+
+
+/scene/<trailer-id>/stream
+
+State is stored in localStorage so the preferred mode persists.
+
+Files
+
+
+
+
+
+scene-trailers.yml — plugin metadata and settings
+
+
+
+scene-trailers.js — UI injection and player control
+
+License
+
+MIT
