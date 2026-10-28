@@ -1,0 +1,12 @@
+name: Scene Trailers
+description: Adds a Trailer/Scene toggle button on individual scene pages.
+version: 1.2.0
+url: scene-trailers.js
+ui:
+  javascript:
+    - scene-trailers.js
+settings:
+  trailer_field:
+    displayName: Trailer field name
+    type: STRING
+    description: Custom field name that holds the trailer Scene ID (plain number).
